@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10101a">
+  <meta name="description" content="Create natural-sounding AI voices with FineVoice. Explore text-to-speech, voice cloning, voice transformation, and speech-to-text.">
+  <title>FineVoice — Give every idea a voice</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #10101a;
+      color: #f7f6fb;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      --muted: #b7b4c7;
+      --accent: #c4a7ff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    a { color: inherit; }
+    .page { min-height: 100vh; overflow: hidden; position: relative; }
+    .page::before {
+      content: "";
+      position: absolute;
+      width: 580px;
+      height: 580px;
+      top: -300px;
+      right: -80px;
+      border-radius: 50%;
+      background: #7548cb;
+      filter: blur(150px);
+      opacity: .3;
+      pointer-events: none;
+    }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; position: relative; }
+    header { height: 88px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ffffff16; }
+    .brand { display: inline-flex; gap: 11px; align-items: center; text-decoration: none; font-size: 20px; font-weight: 720; letter-spacing: -.04em; }
+    .mark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; color: #171222; background: linear-gradient(135deg, #e6d7ff, #a277ff); font-size: 17px; }
+    nav { display: flex; align-items: center; gap: 28px; font-size: 14px; color: var(--muted); }
+    nav a { text-decoration: none; }
+    nav a:hover, .text-link:hover { color: white; }
+    .nav-cta { padding: 10px 16px; border: 1px solid #ffffff35; border-radius: 999px; color: #fff; }
+    main { padding: 104px 0 84px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #d7c6ff; font-size: 13px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #b48aff; box-shadow: 0 0 16px #b48aff; }
+    h1 { max-width: 800px; margin: 23px 0 20px; font-size: clamp(48px, 8vw, 88px); line-height: .99; letter-spacing: -.075em; font-weight: 730; }
+    h1 span { color: var(--accent); }
+    .intro { max-width: 610px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.75; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 34px; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; border: 1px solid #ffffff2b; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 650; transition: transform .18s ease, background .18s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { border-color: transparent; background: linear-gradient(110deg, #d2baff, #9e75f2); color: #171222; }
+    .button.secondary { background: #ffffff08; }
+    .arrow { font-size: 17px; }
+    .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 100px; }
+    .feature { min-height: 168px; padding: 23px; border: 1px solid #ffffff16; border-radius: 16px; background: linear-gradient(145deg, #ffffff0b, #ffffff03); }
+    .icon { width: 36px; height: 36px; display: grid; place-items: center; margin-bottom: 21px; border-radius: 11px; background: #a77af41c; color: #cfb8ff; font-size: 17px; }
+    .feature h2 { margin: 0 0 8px; font-size: 16px; letter-spacing: -.02em; }
+    .feature p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .bottom { display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 24px 0 30px; border-top: 1px solid #ffffff16; color: var(--muted); font-size: 13px; }
+    .bottom-links { display: flex; gap: 22px; }
+    .bottom-links a { text-decoration: none; }
+    @media (max-width: 760px) {
+      main { padding: 78px 0 64px; }
+      .features { grid-template-columns: repeat(2, 1fr); margin-top: 72px; }
+      nav { gap: 16px; }
+      nav a:first-child { display: none; }
+    }
+    @media (max-width: 480px) {
+      .wrap { width: min(100% - 36px, 1120px); }
+      header { height: 72px; }
+      nav { gap: 12px; font-size: 13px; }
+      .nav-cta { padding: 9px 12px; }
+      .features { grid-template-columns: 1fr; }
+      .feature { min-height: 0; }
+      .bottom { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="wrap">
+      <header>
+        <a class="brand" href="https://finevoice.ai/" aria-label="FineVoice home"><span class="mark" aria-hidden="true">f</span>FineVoice</a>
+        <nav aria-label="Main navigation">
+          <a href="https://finevoice.ai/">Product</a>
+          <a href="https://api.finevoice.ai/">Developers</a>
+          <a class="nav-cta" href="https://finevoice.ai/">Explore FineVoice <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
+      <main>
+        <div class="eyebrow">AI voice, made expressive</div>
+        <h1>Give every idea<br><span>a voice.</span></h1>
+        <p class="intro">Create natural-sounding speech, build custom voices, transform audio, and turn speech into text with FineVoice’s AI voice tools and developer API.</p>
+        <div class="actions">
+          <a class="button primary" href="https://finevoice.ai/">Discover FineVoice <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="https://api.finevoice.ai/quickstart">Explore the API <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <section class="features" aria-label="FineVoice capabilities">
+          <article class="feature"><div class="icon" aria-hidden="true">◖</div><h2>Text to speech</h2><p>Turn written words into natural-sounding AI speech.</p></article>
+          <article class="feature"><div class="icon" aria-hidden="true">✳</div><h2>Voice cloning</h2><p>Create custom voice models for your projects.</p></article>
+          <article class="feature"><div class="icon" aria-hidden="true">◌</div><h2>Voice transformation</h2><p>Explore new vocal styles and expressive effects.</p></article>
+          <article class="feature"><div class="icon" aria-hidden="true">≋</div><h2>Speech to text</h2><p>Convert spoken audio into text with AI.</p></article>
+        </section>
+      </main>
+      <footer class="bottom">
+        <span>© <span id="year">2026</span> FineVoice</span>
+        <div class="bottom-links"><a href="https://api.finevoice.ai/">API documentation</a><a href="mailto:support@finevoice.ai">Contact</a></div>
+      </footer>
+    </div>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
